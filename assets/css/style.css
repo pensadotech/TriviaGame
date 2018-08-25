@@ -1,0 +1,137 @@
+/* Personal Styles */
+
+body {
+    /* Remove margins and padding around content */
+    margin: 0;
+    padding: 0;
+    /* Fix background during scrolling */
+    background-attachment: fixed;
+    /* Use scalable background image (cross borwser) */
+    background-image: url("../images/questionMarks.jpg");
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #003A6C
+}
+
+.gradBlue {
+    /* Gradient for NavBar */
+    background-image: -webkit-linear-gradient( top, #003A6C, gray);
+    background-image: -moz-linear-gradient( top, #003A6C, gray);
+    background-image: -ms-linear-gradient( top, #003A6C, gray);
+    background-image: -o-linear-gradient( top, #003A6C, gray);
+    background-image: linear-gradient( top, #003A6C, gray);
+}
+
+.imgRnd10 {
+    /* Rounded image corners */
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.imgRnd5 {
+    /* Rounded image corners */
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.imageShadow {
+    /* Add drop shadow */
+    -webkit-box-shadow: 2px 2px 3px 2px darkblue;
+    -moz-box-shadow: 2px 2px 3px 2px darkblue;
+    box-shadow: 2px 2px 3px 2px darkblue;
+}
+
+.imageRotate {
+    /* Rotate Image */
+    -webkit-transform: rotate( 3deg);
+    -moz-transform: rotate( 3deg);
+    -o-transform: rotate( 3deg);
+    -ms-transform: rotate( 3deg);
+    transform: rotate( 3deg);
+}
+
+/*  header  ..................................... */
+
+header .jumbotron {
+    color: white;
+    opacity: 0.9;
+    /* Controling the size of a jumbotron */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+}
+
+.gameLogoHolder {
+    margin-bottom: 20px;
+}
+
+.logoImage {
+    width: 200px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.mainTitleHolder {
+    padding-top: 20px;
+}
+
+.mainTitle {
+    /* todo: use mediq queries to control this */
+    font-size: 40px;
+    color: rgb(248, 216, 37);
+}
+
+/* Container ..................................... */
+
+.container {
+    background-color: #DBE9F4;
+    /* Transparent background */
+    opacity: 0.9;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* Set min height to fill larger screens */
+    min-height: 400px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.instructionsArea {
+    padding: 20px 0 10px 10px;
+}
+
+.questionArea {
+    padding: 20px 0 10px 10px;
+}
+
+.answerArea {
+    padding: 20px 0 10px 10px;
+}
+
+.btnLarge {
+    color: white;
+    font-size: 40px;
+    width: 200px;
+    height: 90px;
+    margin: 20px 0 20px 0;
+    padding-top: 0px;
+}
+
+/*  Footer ..................................... */
+
+.footer.jumbotron {
+    color: orange;
+    opacity: 0.9;
+    /* Controling the size of a jumbotron */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
