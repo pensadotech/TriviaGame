@@ -4,6 +4,11 @@ $(function () {
 
     console.log("Trivia game");
 
+    // Set sounds for the game
+    var selectSound = new Audio('./assets/sounds/selectSound.mp3');
+    var applauseSound = new Audio('./assets/sounds/Applause.mp3');
+    var correctSound = new Audio('./assets/sounds/correctSound.mp3');
+
     // question object with constructor .................................
     function questionObj(qId, questiontext, answerOptions, correctAnswer) {
         this.id = qId;
@@ -100,12 +105,12 @@ $(function () {
     let game = {
         isGameStarted: false,
         isGameOver: false,
-        maxTimeInSec: 10,
+        maxTimeInSec: 3600,
         maxQuestions: 3,
         currentQuestion: 0,
         correctCount: 0,
         incorrectCount: 0,
-        questionTimer: 0,
+        gameTimer: 0,
         gameTimerInterval: 0,
         // Initialize questionare
         questionsArr: [],
@@ -118,8 +123,8 @@ $(function () {
             // Clear the question counter
             this.stopGameTimer();
             // Initalize aloted time
-            this.questionTimer = this.maxTimeInSec;
-            const convTime = game.timeConverter(this.questionTimer);
+            this.gameTimer = this.maxTimeInSec;
+            const convTime = game.timeConverter(this.gameTimer);
             this.displayInstruction("Time remining: " + convTime);
             // Activate the game timer
             this.gameTimerInterval = setInterval(game.GameTimeCount, 1000)
@@ -130,19 +135,19 @@ $(function () {
         },
         GameTimeCount() {
             // Decrement counter
-            game.questionTimer--;
+            game.gameTimer--;
             // If time runs out
-            if (game.questionTimer <= 0) {
+            if (game.gameTimer <= 0) {
                 game.stopGameTimer();
-                game.questionTimer = 0;
+                game.gameTimer = 0;
                 // Display timer
-                const convTime = game.timeConverter(game.questionTimer);
-                game.displayInstruction("Game over, time remining: " + convTime);
+                const convTime = game.timeConverter(game.gameTimer);
+                game.displayInstruction("Game over, Time remining: " + convTime);
                 // Show summary
                 game.displayGameSummary();
             } else {
-                const convTime = game.timeConverter(game.questionTimer);
-                game.displayInstruction("time remining: " + convTime);
+                const convTime = game.timeConverter(game.gameTimer);
+                game.displayInstruction("Time remining: " + convTime);
             }
         },
         timeConverter(t) {
@@ -179,7 +184,7 @@ $(function () {
             // Write in container
             if (message !== '') {
                 $('#instructionsArea').append(`
-                <h3>${message}</h3>
+                <h4>${message}</h4>
                 `)
             }
         },
@@ -190,7 +195,7 @@ $(function () {
             $('#questionArea').empty();
             // Write in container
             $('#questionArea').append(`
-            <h3>${question.questionTxt}</h3>
+            <h4>${question.questionTxt}</h4>
             `)
         },
         displayPossibleAnswers() {
@@ -217,7 +222,7 @@ $(function () {
             $('#answerArea').empty();
             // Write in container
             $('#answerArea').append(`
-            <h3>The correct answer is: ${question.correctAnswer}</h3>
+            <h4>The correct answer is: ${question.correctAnswer}</h4>
             `)
         },
         displayCorrectAnswer() {
@@ -225,11 +230,15 @@ $(function () {
             $('#answerArea').empty();
             // Write in container
             $('#answerArea').append(`
-                <h3>Correct answer!</h3>
+                <h4>Correct answer!</h4>
               `)
         },
         displayGameSummary() {
-            // Marke game over
+
+            // end game sound
+            applauseSound.play();
+
+            // Mark game over
             game.isGameOver = true;
             // first, Empty container
             $('#questionArea').empty();
@@ -245,9 +254,9 @@ $(function () {
 
             // summary information
             $('#posibleAnswers').append(`
-              <h3>Correct Answers: ${game.correctCount}</h3>
-              <h3>Incorrect Answers: ${game.incorrectCount}</h3>
-              <h3>Unaswered: ${unanswered}</h3>
+              <h4>Correct Answers: ${game.correctCount}</h4>
+              <h4>Incorrect Answers: ${game.incorrectCount}</h4>
+              <h4>Unaswered: ${unanswered}</h4>
              `)
 
             // PResetn the play agaon button
@@ -279,6 +288,7 @@ $(function () {
             let question = this.questionsArr[this.currentQuestion];
             // Compare against correct answer
             if (question.correctAnswer === playerAsnwer) {
+                correctSound.play();
                 this.correctCount++;
                 question.isAnswerCorrect = true;
                 this.displayCorrectAnswer();
@@ -288,28 +298,34 @@ $(function () {
                 this.incorrectCount++;
                 this.displayAnswer();
                 // Get next question with wait for reading the answer
-                this.getNextQuestion(2000);
+                this.getNextQuestion(1500);
             }
         },
         startRoundOfQuestions() {
+
+            // Start game sound
+            applauseSound.play();
 
             this.isGameStarted = true;
             this.questionsArr = [];
             this.questionsArr = questionGenerator.getQuestions(this.maxQuestions);
 
+            // hide button
+            this.hideGameButton();
+            this.currentQuestion = 0;
+            this.correctCount = 0;
+            this.incorrectCount = 0;
+
             // Intiate overall timer for the game
             this.startGameTimer();
 
-            // hide button
-            this.hideGameButton();
-
             // Show the first question
-            this.currentQuestion = 0;
             this.displayQuestion();
             this.displayPossibleAnswers();
         }
 
     } // game object
+
 
     // Initialize game .............................
     game.initialize();
@@ -324,6 +340,8 @@ $(function () {
 
     // event for clocking an answer in teh screen
     $(document).on('click', '.possibleAnswer', function () {
+        // Select sound
+        selectSound.play();
         // Get player's answer
         let playerAsnwer = $(this).attr('data-value');
         // Validate the answer
