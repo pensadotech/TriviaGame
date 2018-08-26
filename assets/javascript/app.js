@@ -230,7 +230,7 @@ $(function () {
             $('#answerArea').empty();
             // Write in container
             $('#answerArea').append(`
-                <h4>Correct answer!</h4>
+                <h5>Correct answer!</h5>
               `)
         },
         displayGameSummary() {
@@ -246,7 +246,7 @@ $(function () {
             $('#answerArea').empty();
             // Message tha the game is done
             $('#questionArea').append(`
-              <h3>All done, here is how you did!</h3>
+              <h4>All done, here is how you did!</h4>
              `)
 
             // Unaswered questions calcuation 
