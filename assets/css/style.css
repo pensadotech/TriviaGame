@@ -103,6 +103,7 @@ header .jumbotron {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .instructionsArea {
@@ -111,16 +112,24 @@ header .jumbotron {
 
 .questionArea {
     padding: 20px 0 10px 10px;
+    color: green;
+}
+
+.posibleAnswers {
+    padding: 20px 0 10px 10px;
+    font-size:22px;
+    font-weight: bold;
 }
 
 .answerArea {
     padding: 20px 0 10px 10px;
+    color: rgb(128, 0, 96);
 }
 
 .btnLarge {
     color: white;
     font-size: 40px;
-    width: 200px;
+    width: 250px;
     height: 90px;
     margin: 20px 0 20px 0;
     padding-top: 0px;
