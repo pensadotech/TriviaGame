@@ -120,10 +120,9 @@ header .jumbotron {
 }
 
 .posibleAnswers {
-    padding: 2px 10px 2px 50px;
+    padding: 2px 10px 2px 20px;
     font-size: 20px;
     font-weight: bold;
-    /* border: 2px solid red; */
 }
 
 .answerArea {
@@ -148,4 +147,90 @@ header .jumbotron {
     /* Controling the size of a jumbotron */
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+/* 
+   Radio Buttons special considerations  
+   ref: CSS - Understand ‘+’, ‘>’ and ‘~’ symbols in CSS Selector
+   https://techbrij.com/css-selector-adjacent-child-sibling
+*/
+
+.funkyradio div {
+    clear: both;
+    overflow: hidden;
+    padding-left: 20px;
+}
+
+.funkyradio label {
+    /* Give radio lable a box and apearance */
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #D1D3D4;
+    font-weight: normal;
+}
+
+.funkyradio input[type="radio"]:empty {
+    /* Hide radio button input radio symbol*/
+    display: none;
+}
+
+.funkyradio input[type="radio"]:empty~label {
+    /* 
+       provide properties to input itself (label)
+       This will pust lable text to the right to provide sapce for symbol 
+    */
+    position: relative;
+    line-height: 30px;
+    text-indent: 50px;
+    margin-top: 2px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.funkyradio input[type="radio"]:empty~label:before {
+    /* Provide background color to place for symbol */
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 35px;
+    content: '';
+    background: #D1D3D4;
+    border-radius: 3px 0 0 3px;
+}
+
+.funkyradio input[type="radio"]:hover:not(:checked)~label {
+    /* Change color to unput lable as user hovers on top */
+    color: #888;
+}
+
+.funkyradio input[type="radio"]:hover:not(:checked)~label:before {
+    /* preview smbol as user hovers over teh option */
+    /* Check mark symbol */
+    content: '\2714';
+    text-indent: 5px;
+    color: #C2C2C2;
+}
+
+.funkyradio input[type="radio"]:checked~label {
+    /* Fixes color for a checked input */
+    color: #777;
+}
+
+.funkyradio input[type="radio"]:checked~label:before {
+    /* Add symbol for a prechecked input */
+    /* use Check mark symbol for checked input*/
+    content: '\2714';
+    text-indent: 5px;
+    color: #333;
+    background-color: #ccc;
+}
+
+.funkyradio-success input[type="radio"]:checked~label:before {
+    /* Give coloer to a selected item */
+    color: #fff;
+    background-color: #5cb85c;
 }

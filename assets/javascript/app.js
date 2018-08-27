@@ -205,13 +205,13 @@ $(function () {
             $('#posibleAnswers').empty();
             // Write in container
             for (let i = 0; i < question.possibleAnswers.length; i++) {
-                $('#posibleAnswers').append(`         
-                <div class="form-check">
-                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input possibleAnswer" 
-                            id="answer_${i}" name="posAnswerGrp" 
-                            data-value="${question.possibleAnswers[i].trim()}">${question.possibleAnswers[i].trim()}</label>
-                 </div>
+                $('#posibleAnswers').append(` 
+                
+                <div class="funkyradio-success">
+                     <input type="radio" name="radio" id="a${i}" 
+                           class="possibleAnswer" data-value="${question.possibleAnswers[i]}"/>
+                     <label for="a${i}">${question.possibleAnswers[i]}</label>
+                </div>
                 `)
             }
         },
