@@ -165,7 +165,7 @@ header .jumbotron {
     /* Give radio lable a box and apearance */
     width: 100%;
     border-radius: 3px;
-    border: 1px solid #D1D3D4;
+    /* border: 1px solid #D1D3D4; */
     font-weight: normal;
 }
 
