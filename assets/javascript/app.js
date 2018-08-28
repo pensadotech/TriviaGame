@@ -141,7 +141,7 @@ $(function () {
     let game = {
         isGameStarted: false,
         isGameOver: false,
-        maxTimeInSec: 60,
+        maxTimeInSec: 40,
         maxQuestions: 5,
         currentQuestion: 0,
         correctCount: 0,
