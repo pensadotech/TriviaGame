@@ -52,6 +52,42 @@ $(function () {
                 questionText: 'How many planets in the solar system has rings?',
                 possibleAnswers: ['Three', 'Two', 'Five', 'Four', 'One'],
                 correctAnswer: 'Four'
+            },
+            possibleQuestion = {
+                id: 'q5',
+                questionText: 'How long does it take sunlight to reach the Earth?',
+                possibleAnswers: ['1 minute', '20 minutes', '8 minutes', '9 minutes', '20 minutes'],
+                correctAnswer: '8 minutes'
+            },
+            possibleQuestion = {
+                id: 'q6',
+                questionText: 'Which one is the largest moon in the solar system?',
+                possibleAnswers: ['Titan', 'Europa', 'Io', 'Pandora', 'Ganymede'],
+                correctAnswer: 'Ganymede'
+            },
+            possibleQuestion = {
+                id: 'q7',
+                questionText: 'Which is the only moon in the solar system with clouds and a dense, planet-like atmosphere?',
+                possibleAnswers: ['Triton', 'Titan', 'Europa', 'Callisto', 'Ganymede'],
+                correctAnswer: 'Titan'
+            },
+            possibleQuestion = {
+                id: 'q8',
+                questionText: 'How long does it take Mars to go around the sun?',
+                possibleAnswers: ['687 days', '560 days', '620 days', '420 days', '710 days'],
+                correctAnswer: '687 days'
+            },
+            possibleQuestion = {
+                id: 'q9',
+                questionText: 'Which is the seventh planet in the solar sytem?',
+                possibleAnswers: ['Jupiter', 'Neptune', 'Saturn', 'Mars', 'Uranus'],
+                correctAnswer: 'Uranus'
+            },
+            possibleQuestion = {
+                id: '10',
+                questionText: 'What is the oldest planet in the solar system?',
+                possibleAnswers: ['Jupiter', 'Neptune', 'Saturn', 'Earth', 'Uranus'],
+                correctAnswer: 'Jupiter'
             }
         ],
         // methods 
@@ -105,8 +141,8 @@ $(function () {
     let game = {
         isGameStarted: false,
         isGameOver: false,
-        maxTimeInSec: 3600,
-        maxQuestions: 3,
+        maxTimeInSec: 60,
+        maxQuestions: 5,
         currentQuestion: 0,
         correctCount: 0,
         incorrectCount: 0,
