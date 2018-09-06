@@ -2,8 +2,6 @@
 
 $(function () {
 
-    console.log("Trivia game");
-
     // Set sounds for the game
     var selectSound = new Audio('./assets/sounds/selectSound.mp3');
     var applauseSound = new Audio('./assets/sounds/Applause.mp3');
