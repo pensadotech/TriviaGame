@@ -1,4 +1,4 @@
-#Trivia game
+# Trivia game
 
 Check your knowledge about are solar system.
 
