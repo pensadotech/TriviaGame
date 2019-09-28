@@ -1,21 +1,47 @@
-# TriviaGame
-Trivia game exercise
+#Trivia game
 
-### Advanced Assignment (Timed Questions)
+Check your knowledge about are solar system.
 
-![Advanced](docs/2-advanced.jpg)
+_By Armando Pensado_
 
-**[Click Here to Watch the demo](docs/advanced-trivia-demo.mov)**.
+## Description
 
-* You'll create a trivia game that shows only one question until the player answers it or their time runs out.
+This game is a trivia game that test the user’s knowledge of our solar system. Every time the application is started will organize at random ten questions, and present each one a time to the user. The player has one minute to answer as much questions as possible.  If an answer is not correct the application will provide feedback to allow the player to know a bit more about the solar system.
 
-* If the player selects the correct answer, show a screen congratulating them for choosing the right option. After a few seconds, display the next question -- do this without user input.
 
-* The scenario is similar for wrong answers and time-outs.
+![MainPage](./docs/TiviaGame.png)
 
-  * If the player runs out of time, tell the player that time's up and display the correct answer. Wait a few seconds, then show the next question.
-  
-  * If the player chooses the wrong answer, tell the player they selected the wrong option and then display the correct answer. Wait a few seconds, then show the next question.
+One minute to answe as many questions as possible
 
-* On the final screen, show the number of correct answers, incorrect answers, and an option to restart the game (without reloading the page).
+![Time](./docs/TriviaGameTime.png)
+
+## Who can benefit from this application
+
+This project is a good example for beginner web developers that are learning HTML, CSS, and JQuery.
+
+## How developers can get started
+
+The developer is welcome to clone or download the project to the personal device. The project can be executed in any browser, and can be visualized using MS Visual code.
+
+There is not specials initialization instructions, as it is plain HTML, CSS, and JQuery.
+
+The developer will find a **app.js** file that contains the core of the functionality. In there, the **'game'** object represents the game, and it uses the **questionGenerator** object to set the questions for the game.
+
+The bottom section has the events for controlling the user input and process teh selections.
+
+After cloning the application and using Microsoft Visual Studio, the project folder should resemble as depicted below.
+
+![ProjectLayout](./docs/Layout.png)
+
+## Who maintains and contributes to the project
+
+This is a project for my personal learning process.
+
+## Project references
+
+* JavaScript : MDN https://developer.mozilla.org/en-US/docs/Web/JavaScript
+* w3schools JavaScript tutotials : https://www.w3schools.com/js/
+* w3schools HTML tutorials : https://www.w3schools.com/html/default.asp
+* w3schools CSS tutorials : https://www.w3schools.com/css/default.asp
+
 
